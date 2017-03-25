@@ -66,7 +66,7 @@ tempStream = text_to_speech.synthesize(params).pipe(fs.createWriteStream('output
 
 
 var init = function(config) {
-    var sensor = usonic.sensor(config.echoPin, config.triggerPin, config.timeout);
+    var sensor = usonic.createSensor(config.echoPin, config.triggerPin, config.timeout);
     //console.log(config);
     var distances;
 
