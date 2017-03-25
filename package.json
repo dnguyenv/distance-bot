@@ -13,7 +13,8 @@
   },
   "author": "Duy V Nguyen",
   "dependencies": {
-    "mmm-usonic": "^2.5.3",    
+    "math-statistics": "^1.2.0",
+    "mmm-usonic": "^2.5.3",
     "watson-developer-cloud": "^2.2.0"
   }
 }

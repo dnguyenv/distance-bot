@@ -1,10 +1,8 @@
-var ECHO_PIN = 36,
-    TRIG_PIN = 16;
+var ECHO_PIN = 24,
+    TRIG_PIN = 23;
 
-var rpio = require('rpio');
 var watson = require('watson-developer-cloud');
 var config = require("./config.js")
-var devicConfig = require("./device.json");
 var exec = require('child_process').exec;
 var fs = require('fs');
 var text_to_speak = "This is a test";
@@ -53,7 +51,7 @@ var initSensor = function(config) {
 
     console.log('Config: ' + JSON.stringify(config));
 
-    var distances = [];
+    var distances;
 
     (function measure() {
         if (!distances || distances.length === config.rate) {
@@ -67,13 +65,9 @@ var initSensor = function(config) {
         }
 
         setTimeout(function() {
-          try{
             console.log('vao setTimeout: ', distances.length);
             distances.push(sensor());
             measure();
-          }catch(err){
-            console.log(err);
-          }
         }, config.delay);
     }());
 };
