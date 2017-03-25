@@ -1,0 +1,21 @@
+{
+  "name": "ThienAnDistanceBot",
+  "version": "1.0.0",
+  "description": "Thien An Distance Bot, a TJBot recipe",
+  "main": "client/speak.js",
+  "scripts": {
+    "start": "node speak.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dnguyenv/distance-bot.git"
+  },
+  "author": "Duy V Nguyen",
+  "dependencies": {
+    "ibmiotf": "^0.2.33",
+    "r-pi-usonic": "^2.5.0",
+    "rpio": "^0.9.16",
+    "watson-developer-cloud": "^2.2.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+        "org": "xxxxx",
+        "domain": "internetofthings.ibmcloud.com",
+        "type": "RaspberryPi",
+        "id": "thienanbot",
+        "auth-method": "token",
+        "auth-token": "xxxxxxxxxxxxxxxx",
+        "use-client-certs": false,
+        "server-ca": "path to custom server certificate",
+        "client-ca": "path to device-client ca certificate",
+        "client-cert": "path to device-client certificate",
+        "client-key": "path to device-client key",
+        "client-key-passphrase": "client-key-password"
+}
