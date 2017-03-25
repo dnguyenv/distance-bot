@@ -1,4 +1,5 @@
-var ECHO_PIN = 7, TRIG_PIN = 16;
+var ECHO_PIN = 7,
+    TRIG_PIN = 16;
 
 var rpio = require('rpio');
 var watson = require('watson-developer-cloud');
@@ -30,26 +31,26 @@ deviceClient.log.setLevel('debug');
 
 deviceClient.connect();
 
-deviceClient.on('connect', function(){
+deviceClient.on('connect', function() {
     console.log("connected");
 });
 
-deviceClient.on('reconnect', function(){
+deviceClient.on('reconnect', function() {
 
-	console.log("Reconnected!!!");
+    console.log("Reconnected!!!");
 });
 
-deviceClient.on('disconnect', function(){
-  console.log('Disconnected from IoTF');
+deviceClient.on('disconnect', function() {
+    console.log('Disconnected from IoTF');
 });
 
-deviceClient.on('error', function (argument) {
-	console.log(argument);
+deviceClient.on('error', function(argument) {
+    console.log(argument);
 });
 
-deviceClient.on("command", function (commandName,format,payload,topic) {
+deviceClient.on("command", function(commandName, format, payload, topic) {
     console.log('payload: ', payload, ' and topic: ', topic);
-    if(commandName === "blink") {
+    if (commandName === "blink") {
         console.log(blink);
     } else {
         console.log("Command not supported.. " + commandName);
@@ -65,9 +66,26 @@ tempStream = text_to_speech.synthesize(params).pipe(fs.createWriteStream('output
 });
 
 
-var init = function(config) {
+
+
+var print = function(distances) {
+    var distance = statistics.median(distances);
+
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
+
+    if (distance < 0) {
+        process.stdout.write('Error: Measurement timeout.\n');
+    } else {
+        process.stdout.write('Distance: ' + distance.toFixed(2) + ' cm');
+    }
+};
+
+var initSensor = function(config) {
     var sensor = usonic.createSensor(config.echoPin, config.triggerPin, config.timeout);
-    //console.log(config);
+
+    console.log('Config: ' + JSON.stringify(config));
+
     var distances;
 
     (function measure() {
@@ -87,23 +105,16 @@ var init = function(config) {
     }());
 };
 
-var print = function(distances) {
-    var distance = statistics.median(distances);
-
-    process.stdout.clearLine();
-    process.stdout.cursorTo(0);
-
-    if (distance < 0) {
-        process.stdout.write('Error: Measurement timeout.\n');
+usonic.init(function(error) {
+    if (error) {
+        console.log(error);
     } else {
-        process.stdout.write('Distance: ' + distance.toFixed(2) + ' cm');
+        initSensor({
+            echoPin: ECHO_PIN,
+            triggerPin: TRIG_PIN,
+            timeout: 750,
+            delay: 60,
+            rate: 5
+        });
     }
-};
-
-init({
-    echoPin: 7, //Echo pin
-    triggerPin: 16, //Trigger pin
-    timeout: 1000, //Measurement timeout in µs
-    delay: 60, //Measurement delay in ms
-    rate: 5 //Measurements per sample
 });
