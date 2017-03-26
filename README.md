@@ -50,3 +50,7 @@ cd distance-bot
 npm install
 npm start
 ```
+
+Demo:
+
+![video](https://www.youtube.com/watch?v=kGMoz_fgO04)
