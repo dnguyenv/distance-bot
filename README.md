@@ -51,6 +51,4 @@ npm install
 npm start
 ```
 
-Demo:
-
-[![image](images/thienanbot.png)](https://www.youtube.com/watch?v=kGMoz_fgO04)
+Click [here](https://www.youtube.com/watch?v=kGMoz_fgO04) the picture to see the demo:
