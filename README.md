@@ -53,4 +53,4 @@ npm start
 
 Click [here](https://www.youtube.com/watch?v=kGMoz_fgO04) or on the picture below to see the demo:
 
-[![image](images/thienanbot.png =200x200)](https://www.youtube.com/watch?v=kGMoz_fgO04)
+[<img src="https://github.com/dnguyenv/distance-bot/blob/master/images/thienanbot.png" width="200">](https://www.youtube.com/watch?v=kGMoz_fgO04)
