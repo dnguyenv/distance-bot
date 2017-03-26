@@ -2,7 +2,7 @@
   "name": "ThienAnDistanceBot",
   "version": "1.0.0",
   "description": "Thien An Distance Bot, a TJBot recipe",
-  "main": "client/speak.js",
+  "main": "speak.js",
   "scripts": {
     "start": "node speak.js",
     "test": "echo \"Error: no test specified\" && exit 1"
