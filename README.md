@@ -19,19 +19,19 @@ This recipe provides steps to build a simple robot which knows distance between 
 
 ### Wire up the parts
 
-[images](images/wired.png)
+![images](images/wired.png)
 
 ### Create Bluemix text to speech service
 
 Login to Bluemix with your registered ID, Go to `Catalog`, Search for `text to speech` and select the service
 
-[images](images/service-search.png)
+![images](images/service-search.png)
 
 Name the `service` and `credential` if you want, or just leave them by default, Select `Create`
 
 Once the service is created, go to `Service credentials` , `View credentials` section to record the `username` and `password` information. You will need it later for the app. You can always create a new `credential` to access the service as needed, by selecting `New credential`
 
-[images](images/credentials.png)
+![images](images/credentials.png)
 
 ### Clone the code and install dependencies
 
